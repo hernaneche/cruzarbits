@@ -1,1 +1,8 @@
-"# cruzarbits" 
+##Cruzarbits
+
+Cruza bits según tabla.
+
+
+
+
+
