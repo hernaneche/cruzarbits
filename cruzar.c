@@ -1,7 +1,5 @@
 #define SIZE_TABLA 16
 
-int tabla[] = { 0,1,2,3,4,5,6,7,13,10,9,11,8,15,14,12 };  
-                
 //genera una tabla nueva para revertir el cruce
 void revertir( int *tabla, int *tablaInv, int size) {
 int ret = 0, num;  
@@ -37,9 +35,16 @@ for (i = 0; i < size; i++) {
 }
 
 int main(){	
-    printf("health:[%d]", health(tabla, SIZE_TABLA) );
+	
+    int tabla[] = { 0,1,2,3,4,5,6,7,13,10,9,11,8,15,14,12 };  
     int tablaInv[SIZE_TABLA];
+    
+    printf("health:[%d]", health(tabla, SIZE_TABLA) );
+    printf("healthInv:[%d]", health(tablaInv, SIZE_TABLA) );
+    
     revertir(tabla,tablaInv,SIZE_TABLA);
+    printf("healthInv:[%d]", health(tablaInv, SIZE_TABLA) );
+    
 	int nro=58433;		
 	int cruzado=cruzar(nro, tabla, SIZE_TABLA);	
 	int descruzado=cruzar(cruzado, tablaInv, SIZE_TABLA);
