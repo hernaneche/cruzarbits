@@ -8,6 +8,10 @@ int ret = 0, num;
 for( num = 0; num < size; num++ ){            
         *(tablaInv+ *(tabla+num) )  = num;        
   }
+  
+  for( num = 0; num < size; num++ ){            
+    printf("%d,", *(tablaInv+num) );
+  }
 }
 
 //implementa cruce de bits segun tabla
