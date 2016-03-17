@@ -6,10 +6,6 @@ int ret = 0, num;
 for( num = 0; num < size; num++ ){            
         *(tablaInv+ *(tabla+num) )  = num;        
   }
-  
-  for( num = 0; num < size; num++ ){            
-    printf("%d,", *(tablaInv+num) );
-  }
 }
 
 //implementa cruce de bits segun tabla
@@ -43,11 +39,9 @@ int main(){
     int tabla[] = { 0,1,2,3,4,5,6,7,13,10,9,11,8,15,14,12 };  
     int tablaInv[SIZE_TABLA];
     
-    printf("health:[%d]", health(tabla, SIZE_TABLA) );
-    printf("healthInv:[%d]", health(tablaInv, SIZE_TABLA) );
+    printf("\nhealth:[%d]", health(tabla, SIZE_TABLA) );    
     
-    revertir(tabla,tablaInv,SIZE_TABLA);
-    printf("healthInv:[%d]", health(tablaInv, SIZE_TABLA) );
+    revertir(tabla,tablaInv,SIZE_TABLA);    
     
 	int nro=58433;		
 	int cruzado=cruzar(nro, tabla, SIZE_TABLA);	
