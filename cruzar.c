@@ -1,11 +1,4 @@
-
-//genera una tabla nueva para revertir el cruce
-void revertir( int *tableLSBFirst, int *tableLSBFirstInv, int size) {
-int ret = 0, num;  
-for( num = 0; num < size; num++ ){            
-        *(tableLSBFirstInv+ *(tableLSBFirst+num) )  = num;        
-  }
-}
+#include<stdio.h>
 
 //implementa cruce de bits segun tabla
 int cruzar( int in , int *tableLSBFirst, int size) {	  
@@ -19,7 +12,15 @@ int cruzar( int in , int *tableLSBFirst, int size) {
   return ret;
 }
 
-//tabla ok
+//genera una tabla nueva para revertir el cruce
+void revertir( int *tableLSBFirst, int *tableLSBFirstInv, int size) {
+int ret = 0, num;  
+for( num = 0; num < size; num++ ){            
+        *(tableLSBFirstInv+ *(tableLSBFirst+num) )  = num;        
+  }
+}
+
+//check tabla ok
 int health( int *tableLSBFirst , int size){
 	int times=0;
 	int i,j;
