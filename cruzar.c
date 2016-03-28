@@ -27,24 +27,24 @@ int health( int *tableLSBFirst , int size){
 for (i = 0; i < size; i++) {	
     for (j = i + 1; j < size; j++) {
         if ( *(tableLSBFirst+i) == *(tableLSBFirst+j) ||  *(tableLSBFirst+i) >=size ) {
-            return 0;//error repeat or out of range 
+            return 0;//error, repeat or out of range 
         }
     }    
  } 
- return 1;//ok no repeat nor out of range
+ return 1;//ok, no repeat nor out of range
 }
 
 int main(){	
 	
 	#define TABLE_SIZE 8
 	
-    //int tableLSBFirst[] = { 0,1,2,3,4,5,6,7,13,10,9,11,8,15,14,12 };  
-    int tableLSBFirst[] = { 0, 2, 1, 3, 4, 5, 7, 6 }; 
+    	//int tableLSBFirst[] = { 0,1,2,3,4,5,6,7,13,10,9,11,8,15,14,12 };  
+    	int tableLSBFirst[] = { 0, 2, 1, 3, 4, 5, 7, 6 }; 
     
-    printf("\nhealth:[%d]", health(tableLSBFirst, TABLE_SIZE) );    
+    	printf("\nhealth:[%d]", health(tableLSBFirst, TABLE_SIZE) );    
     
-    int tableLSBFirstInv[TABLE_SIZE];
-    revertir(tableLSBFirst,tableLSBFirstInv,TABLE_SIZE);    
+    	int tableLSBFirstInv[TABLE_SIZE];
+    	revertir(tableLSBFirst,tableLSBFirstInv,TABLE_SIZE);    
     
 	int nro=83;		
 	
