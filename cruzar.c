@@ -1,19 +1,18 @@
-#define SIZE_TABLA 16
 
 //genera una tabla nueva para revertir el cruce
-void revertir( int *tabla, int *tablaInv, int size) {
+void revertir( int *tableLSBFirst, int *tableLSBFirstInv, int size) {
 int ret = 0, num;  
 for( num = 0; num < size; num++ ){            
-        *(tablaInv+ *(tabla+num) )  = num;        
+        *(tableLSBFirstInv+ *(tableLSBFirst+num) )  = num;        
   }
 }
 
 //implementa cruce de bits segun tabla
-int cruzar( int in , int *tabla, int size) {	  
+int cruzar( int in , int *tableLSBFirst, int size) {	  
   int ret = 0, num;  
   for( num = 0; num < size; num++ ){      
       if ( in & 0x01 ){
-          ret |= 1 << tabla[num];
+          ret |= 1 << tableLSBFirst[num];
        }
       in >>= 1;
   }
@@ -21,12 +20,12 @@ int cruzar( int in , int *tabla, int size) {
 }
 
 //tabla ok
-int health( int *tabla , int size){
+int health( int *tableLSBFirst , int size){
 	int times=0;
 	int i,j;
 for (i = 0; i < size; i++) {	
     for (j = i + 1; j < size; j++) {
-        if ( *(tabla+i) == *(tabla+j) ||  *(tabla+i) >=size ) {
+        if ( *(tableLSBFirst+i) == *(tableLSBFirst+j) ||  *(tableLSBFirst+i) >=size ) {
             return 0;//error repeat or out of range 
         }
     }    
@@ -36,16 +35,20 @@ for (i = 0; i < size; i++) {
 
 int main(){	
 	
-    int tabla[] = { 0,1,2,3,4,5,6,7,13,10,9,11,8,15,14,12 };  
-    int tablaInv[SIZE_TABLA];
+	#define TABLE_SIZE 8
+	
+    //int tableLSBFirst[] = { 0,1,2,3,4,5,6,7,13,10,9,11,8,15,14,12 };  
+    int tableLSBFirst[] = { 0, 2, 1, 3, 4, 5, 7, 6 }; 
     
-    printf("\nhealth:[%d]", health(tabla, SIZE_TABLA) );    
+    printf("\nhealth:[%d]", health(tableLSBFirst, TABLE_SIZE) );    
     
-    revertir(tabla,tablaInv,SIZE_TABLA);    
+    int tableLSBFirstInv[TABLE_SIZE];
+    revertir(tableLSBFirst,tableLSBFirstInv,TABLE_SIZE);    
     
-	int nro=58433;		
-	int cruzado=cruzar(nro, tabla, SIZE_TABLA);	
-	int descruzado=cruzar(cruzado, tablaInv, SIZE_TABLA);
+	int nro=83;		
+	
+	int cruzado=cruzar(nro, tableLSBFirst, TABLE_SIZE);	
+	int descruzado=cruzar(cruzado, tableLSBFirstInv, TABLE_SIZE);
 	printf("\n%d->%d->%d",nro, cruzado, descruzado);
 }
 
