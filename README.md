@@ -13,6 +13,8 @@ Cruza bits según tabla.
 
 int tabla[] = { 0, 2, 1, 3, 4, 5, 7, 6 }; //LSB first
 
+int cruzado = cruzar( nro, tabla, 8 /*size*/);	
+
 ```
 
 ```
