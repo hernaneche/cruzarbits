@@ -21,7 +21,7 @@ void revertir( const int *tableLSBFirst, int *tableLSBFirstInv, int size) {
 }
 
 //Check tabla ok
-int checkHealth( int *tableLSBFirst , int size){
+int checkTableHealth( int *tableLSBFirst , int size){
   int times=0;
   int i,j;
   for (i = 0; i < size; i++) {	
@@ -41,7 +41,7 @@ int main(){
 	int tableLSBFirst[] = { 0, 2, 1, 3, 4, 5, 7, 6 };  //int tableLSBFirst[] = { 0,1,2,3,4,5,6,7,13,10,9,11,8,15,14,12 };  
 	int tableLSBFirstInv[TABLE_SIZE];
 	
-	printf("Tabla ok: %s", checkHealth(tableLSBFirst, TABLE_SIZE)? "yes":"no");    
+	printf("Tabla ok: %s", checkTableHealth(tableLSBFirst, TABLE_SIZE)? "yes":"no");    
 	
 	revertir(tableLSBFirst,tableLSBFirstInv,TABLE_SIZE);    
 
