@@ -1,8 +1,8 @@
-## Cruzarbits
+## Cruzar bits y bytes
 
-Cruza bits según tabla.
+Cruza bits y bytes, según tabla.
 
-#### Ejemplo
+#### Ejemplo bits
 
 ```C
  0  1  2  3  4  5  6  7
